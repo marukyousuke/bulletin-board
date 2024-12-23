@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1> 入力画面です</h1>
+    
+    <form action="/create" method="POST">
+        <input type="text" name="message" placeholder="メッセージを入力">
+        <button type="submit">投稿</button>
+    </form>
+
+    <h2>投稿一覧</h2>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <p>{{ post.msg }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <script src="https://vercel.com/analytics/script.js" defer></script>
+</body>
+</html>
+
